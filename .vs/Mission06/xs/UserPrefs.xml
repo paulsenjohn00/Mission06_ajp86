@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{3BF7111E-E4E5-4311-92E9-2840D3B3D6FC}|Default" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Mission06/Migrations/20230214023449_Initial.cs">
+    <Files>
+      <File FileName="Mission06/Views/Home/Index.cshtml" Line="9" Column="63" />
+      <File FileName="Mission06/Views/Shared/_Layout.cshtml" Line="28" Column="115" />
+      <File FileName="Mission06/Views/Home/MyPodcasts.cshtml" Line="8" Column="67" />
+      <File FileName="Mission06/Controllers/HomeController.cs" Line="40" Column="45" />
+      <File FileName="Mission06/Views/Home/EnterMovie.cshtml" Line="41" Column="48" />
+      <File FileName="Mission06/Models/MovieEntry.cs" Line="22" Column="43" />
+      <File FileName="Mission06/Views/Home/Confirmation.cshtml" Line="8" Column="48" />
+      <File FileName="Mission06/Migrations/20230214023449_Initial.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Mission06" expanded="True">
+            <Node name="Mission06" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Migrations" expanded="True" />
+              <Node name="Views" expanded="True" />
+              <Node name="MovieEntries.sqlite" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Mission06 PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
