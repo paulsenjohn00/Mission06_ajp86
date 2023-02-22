@@ -20,10 +20,7 @@
 /Users/ashtonpaulsen/Projects/Mission06/Mission06/obj/Debug/netcoreapp3.1/Mission06.TagHelpers.output.cache
 /Users/ashtonpaulsen/Projects/Mission06/Mission06/obj/Debug/netcoreapp3.1/Mission06.RazorCoreGenerate.cache
 /Users/ashtonpaulsen/Projects/Mission06/Mission06/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
-/Users/ashtonpaulsen/Projects/Mission06/Mission06/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs
-/Users/ashtonpaulsen/Projects/Mission06/Mission06/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.cs
 /Users/ashtonpaulsen/Projects/Mission06/Mission06/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
-/Users/ashtonpaulsen/Projects/Mission06/Mission06/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
 /Users/ashtonpaulsen/Projects/Mission06/Mission06/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs
 /Users/ashtonpaulsen/Projects/Mission06/Mission06/obj/Debug/netcoreapp3.1/Razor/Views/_ViewStart.cshtml.g.cs
 /Users/ashtonpaulsen/Projects/Mission06/Mission06/obj/Debug/netcoreapp3.1/Mission06.RazorTargetAssemblyInfo.cache
@@ -87,3 +84,5 @@
 /Users/ashtonpaulsen/Projects/Mission06/Mission06/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/e_sqlite3.dll
 /Users/ashtonpaulsen/Projects/Mission06/Mission06/obj/Debug/netcoreapp3.1/staticwebassets/Mission06.StaticWebAssets.xml
 /Users/ashtonpaulsen/Projects/Mission06/Mission06/obj/Debug/netcoreapp3.1/scopedcss/bundle/Mission06.styles.css
+/Users/ashtonpaulsen/Projects/Mission06/Mission06/obj/Debug/netcoreapp3.1/Razor/Views/Home/MovieList.cshtml.g.cs
+/Users/ashtonpaulsen/Projects/Mission06/Mission06/obj/Debug/netcoreapp3.1/Razor/Views/Home/Delete.cshtml.g.cs

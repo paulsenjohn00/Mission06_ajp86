@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Mission06.Models;
 
@@ -11,12 +12,11 @@ namespace Mission06.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+
         private MovieEntryContext MovieEntryContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger, MovieEntryContext movieEntry)
+        public HomeController(MovieEntryContext movieEntry)
         {
-            _logger = logger;
             MovieEntryContext = movieEntry;
         }
 
@@ -33,26 +33,75 @@ namespace Mission06.Controllers
         [HttpGet]
         public IActionResult EnterMovie()
         {
+            ViewBag.Categories = MovieEntryContext.Categories.ToList();
+
             return View();
         }
 
         [HttpPost]
         public IActionResult EnterMovie(MovieEntry me)
         {
-            MovieEntryContext.Add(me);
+            if (ModelState.IsValid)
+            { 
+                MovieEntryContext.Add(me);
+                MovieEntryContext.SaveChanges();
+                return View("Confirmation", me);
+            }
+
+            else //is not valid
+            {
+                ViewBag.Categories = MovieEntryContext.Categories.ToList();
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public IActionResult MovieList()
+        {
+            var movieList = MovieEntryContext.entries
+                .Include(x => x.Category)
+                .OrderBy(x => x.Title)
+                .ToList();
+
+            return View(movieList);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int movieid)
+        {
+            ViewBag.Categories = MovieEntryContext.Categories.ToList();
+
+            var movieEntry = MovieEntryContext.entries
+                .Single(x => x.MovieId == movieid);
+
+            return View("EnterMovie", movieEntry);
+        }
+
+        [HttpPost]
+        public IActionResult Edit (MovieEntry me)
+        {
+            MovieEntryContext.Update(me);
             MovieEntryContext.SaveChanges();
-            return View("Confirmation", me);
+
+            return RedirectToAction("MovieList");
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult Delete(int movieid)
         {
-            return View();
+            var movieEntry = MovieEntryContext.entries
+                .Single(x => x.MovieId == movieid);
+
+            return View(movieEntry);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult Delete(MovieEntry me)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            MovieEntryContext.entries.Remove(me);
+            MovieEntryContext.SaveChanges();
+
+            return RedirectToAction("MovieList");
         }
     }
 }

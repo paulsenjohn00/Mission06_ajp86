@@ -8,7 +8,7 @@ using Mission06.Models;
 namespace Mission06.Migrations
 {
     [DbContext(typeof(MovieEntryContext))]
-    [Migration("20230214041700_Initial")]
+    [Migration("20230222004001_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,15 +17,55 @@ namespace Mission06.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.32");
 
+            modelBuilder.Entity("Mission06.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            CategoryName = "Action/Adventure"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            CategoryName = "Comedy"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryName = "Thriller"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryName = "Romance"
+                        },
+                        new
+                        {
+                            CategoryId = 5,
+                            CategoryName = "Sci-Fi/Fantasy"
+                        });
+                });
+
             modelBuilder.Entity("Mission06.Models.MovieEntry", b =>
                 {
                     b.Property<int>("MovieId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Director")
                         .IsRequired()
@@ -54,13 +94,15 @@ namespace Mission06.Migrations
 
                     b.HasKey("MovieId");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("entries");
 
                     b.HasData(
                         new
                         {
                             MovieId = 1,
-                            Category = "Comedy",
+                            CategoryId = 2,
                             Director = "Peter Segal",
                             Edited = false,
                             LentTo = "Johnny",
@@ -72,7 +114,7 @@ namespace Mission06.Migrations
                         new
                         {
                             MovieId = 2,
-                            Category = "Romance/Fantasy",
+                            CategoryId = 4,
                             Director = "Richard Curtis",
                             Edited = false,
                             LentTo = "Johnny",
@@ -84,7 +126,7 @@ namespace Mission06.Migrations
                         new
                         {
                             MovieId = 3,
-                            Category = "Fantasy/Adventure",
+                            CategoryId = 5,
                             Director = "Peter Jackson",
                             Edited = false,
                             LentTo = "Johnny",
@@ -93,6 +135,15 @@ namespace Mission06.Migrations
                             Title = "Lord of the Rings: Return of the King",
                             Year = 2003
                         });
+                });
+
+            modelBuilder.Entity("Mission06.Models.MovieEntry", b =>
+                {
+                    b.HasOne("Mission06.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

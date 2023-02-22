@@ -1,15 +1,24 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Movie Entry";
 }
 
 @model Mission06.Models.MovieEntry
 
 <h1>Movie Entry</h1>
+
+
 <form method="post">
-    <label asp-for="Category">Category:</label>
-    <input asp-for="Category" type="text" /><br />
+
+    <div asp-validation-summary="All"></div>
+
+    <label asp-for="CategoryId">Category:</label>
+    <select asp-for="CategoryId">
+        <option value="">Select a Category</option>
+        @foreach (Category cat in ViewBag.Categories)
+         {
+            <option value="@cat.CategoryId">@cat.CategoryName</option>
+         }
+    </select><br />
 
     <label asp-for="Title">Title:</label>
     <input asp-for="Title" type="text" /><br />
