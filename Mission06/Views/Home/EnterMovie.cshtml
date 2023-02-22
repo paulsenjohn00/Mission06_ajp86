@@ -9,11 +9,13 @@
 <div>
     <form method="post">
 
+        <!--displays errors in data entry-->
         <div asp-validation-summary="All"></div>
 
         <label asp-for="CategoryId">Category:</label>
         <select asp-for="CategoryId">
             <option value="">Select a Category</option>
+        <!--loops through all the categories created to provide a drop down with options-->
             @foreach (Category cat in ViewBag.Categories)
             {
                 <option value="@cat.CategoryId">@cat.CategoryName</option>

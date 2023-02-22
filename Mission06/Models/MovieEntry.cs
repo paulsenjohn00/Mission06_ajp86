@@ -5,6 +5,7 @@ namespace Mission06.Models
 {
 	public class MovieEntry
 	{
+        // sets primary key
         [Key]
         [Required]
         public int MovieId { get; set; }

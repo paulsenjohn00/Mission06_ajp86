@@ -6,6 +6,7 @@
 
 <table class="table table-bordered table-striped">
 
+    <!--Column labels-->
     <thead class="font-weight-bold">
         <tr>
             <td>Category</td>
@@ -20,7 +21,9 @@
 
     </thead>
 
+    <!--specific records-->
     <tbody>
+        <!--Loops through the list of Movie Entries to grab each field and assign it to a column-->
         @foreach (var x in Model)
             {
                 <tr>
@@ -33,6 +36,7 @@
                     <td>@x.LentTo</td>
                     <td>@x.Notes</td>
 
+                    <!--The route allows the movieid to be sent through the route -->
                     <td><a asp-controller="Home" asp-action="Edit" asp-route-movieid="@x.MovieId">Edit</a></td>
                     <td><a asp-controller="Home" asp-action="Delete" asp-route-movieid="@x.MovieId">Delete</a></td>
                 </tr>
