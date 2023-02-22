@@ -6,48 +6,49 @@
 
 <h1>Movie Entry</h1>
 
+<div>
+    <form method="post">
 
-<form method="post">
+        <div asp-validation-summary="All"></div>
 
-    <div asp-validation-summary="All"></div>
+        <label asp-for="CategoryId">Category:</label>
+        <select asp-for="CategoryId">
+            <option value="">Select a Category</option>
+            @foreach (Category cat in ViewBag.Categories)
+            {
+                <option value="@cat.CategoryId">@cat.CategoryName</option>
+            }
+        </select><br />
 
-    <label asp-for="CategoryId">Category:</label>
-    <select asp-for="CategoryId">
-        <option value="">Select a Category</option>
-        @foreach (Category cat in ViewBag.Categories)
-         {
-            <option value="@cat.CategoryId">@cat.CategoryName</option>
-         }
-    </select><br />
+        <label asp-for="Title">Title:</label>
+        <input asp-for="Title" type="text" /><br />
 
-    <label asp-for="Title">Title:</label>
-    <input asp-for="Title" type="text" /><br />
+        <label asp-for="Year">Year:</label>
+        <input asp-for="Year" type="number" /><br />
 
-    <label asp-for="Year">Year:</label>
-    <input asp-for="Year" type="number" /><br />
+        <label asp-for="Director">Director:</label>
+        <input type="text" asp-for="Director" /><br />
 
-    <label asp-for="Director">Director:</label>
-    <input type="text" asp-for="Director" /><br />
+        <label asp-for="Rating">Rating:</label>
+        <select asp-for="Rating">
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select><br />
 
-    <label asp-for="Rating">Rating:</label>
-    <select asp-for="Rating">
-        <option value="G">G</option>
-        <option value="PG">PG</option>
-        <option value="PG-13">PG-13</option>
-        <option value="R">R</option>
-    </select><br />
+        <label asp-for="Edited">Edited:</label>
+        <select asp-for="Edited">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select><br />
 
-    <label asp-for="Edited">Edited:</label>
-    <select asp-for="Edited">
-        <option value="true">Yes</option>
-        <option value="false">No</option>
-    </select><br />
+        <label asp-for="LentTo">Lent To:</label>
+        <input type="text" asp-for="LentTo" /><br />
 
-    <label asp-for="LentTo">Lent To:</label>
-    <input type="text" asp-for="LentTo" /><br />
+        <label asp-for="Notes">Notes:</label>
+        <input asp-for="Notes" type="text" /><br />
 
-    <label asp-for="Notes">Notes:</label>
-    <input asp-for="Notes" type="text" /><br />
-
-    <button type="submit">Submit</button>
-</form>
+        <button type="submit">Submit</button>
+    </form>
+</div>

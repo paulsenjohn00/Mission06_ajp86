@@ -25,10 +25,12 @@ namespace Mission06.Controllers
             return View();
         }
 
+
         public IActionResult MyPodcasts()
         {
             return View();
         }
+
 
         [HttpGet]
         public IActionResult EnterMovie()
@@ -55,6 +57,7 @@ namespace Mission06.Controllers
             }
         }
 
+
         [HttpGet]
         public IActionResult MovieList()
         {
@@ -65,6 +68,7 @@ namespace Mission06.Controllers
 
             return View(movieList);
         }
+
 
         [HttpGet]
         public IActionResult Edit(int movieid)
@@ -86,6 +90,7 @@ namespace Mission06.Controllers
             return RedirectToAction("MovieList");
         }
 
+
         [HttpGet]
         public IActionResult Delete(int movieid)
         {
@@ -94,6 +99,7 @@ namespace Mission06.Controllers
 
             return View(movieEntry);
         }
+
 
         [HttpPost]
         public IActionResult Delete(MovieEntry me)
